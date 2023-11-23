@@ -30,9 +30,9 @@ import br.com.fiap.MedCare.repository.UsuarioRepository;
 import br.com.fiap.MedCare.service.TokenService;
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:19006", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/usuarios")
+@CrossOrigin
 public class UsuarioController {
 
     @Autowired
