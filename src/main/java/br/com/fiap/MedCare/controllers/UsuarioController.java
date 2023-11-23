@@ -105,7 +105,8 @@ public class UsuarioController {
                     // Update fields of existingUsuario with the values from updatedUsuario
                     existingUsuario.setNome(updatedUsuario.getNome());
                     existingUsuario.setEmail(updatedUsuario.getEmail());
-                    // ... (update other fields)
+                    existingUsuario.setDataNascimento(updatedUsuario.getDataNascimento());
+                    existingUsuario.setCpfCrm(updatedUsuario.getCpfCrm());
 
                     repository.save(existingUsuario);
 
