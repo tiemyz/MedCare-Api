@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping("/api/chat")
 public class ChatController {
 
-    private final ChatRepository chatRepository;
-
     @Autowired
+    ChatRepository chatRepository;
+
     public ChatController(ChatRepository chatRepository) {
         this.chatRepository = chatRepository;
     }
