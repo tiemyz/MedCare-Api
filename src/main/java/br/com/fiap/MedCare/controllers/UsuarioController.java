@@ -13,6 +13,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ import br.com.fiap.MedCare.repository.UsuarioRepository;
 import br.com.fiap.MedCare.service.TokenService;
 import jakarta.validation.Valid;
 
+@CrossOrigin(origins = "http://localhost:19006", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
