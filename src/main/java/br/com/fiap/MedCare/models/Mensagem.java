@@ -14,15 +14,10 @@ public class Mensagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String text; // Alterado para 'text' em vez de 'texto'
-
-    private Long userId; // Novo campo para identificar o usuário (médico ou paciente)
-
+    private String text; 
+    private Long userId; 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataEnvio;
-
-    // getters e setters
 
     public Long getId() {
         return id;

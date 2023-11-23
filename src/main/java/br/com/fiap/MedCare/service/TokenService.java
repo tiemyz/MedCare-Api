@@ -2,23 +2,18 @@ package br.com.fiap.MedCare.service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-
 import br.com.fiap.MedCare.models.Credencial;
 import br.com.fiap.MedCare.models.Token;
 import br.com.fiap.MedCare.models.Usuario;
 import br.com.fiap.MedCare.repository.UsuarioRepository;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-
 
 @Service
 public class TokenService {
