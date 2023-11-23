@@ -14,15 +14,15 @@ public class Mensagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String texto;
+    
+    private String text; // Alterado para 'text' em vez de 'texto'
+
+    private Long userId; // Novo campo para identificar o usuário (médico ou paciente)
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataEnvio;
 
-
-    public Mensagem() {
-        this.dataEnvio = new Date(); 
-    }
+    // getters e setters
 
     public Long getId() {
         return id;
@@ -32,12 +32,20 @@ public class Mensagem {
         this.id = id;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getText() {
+        return text;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Date getDataEnvio() {
