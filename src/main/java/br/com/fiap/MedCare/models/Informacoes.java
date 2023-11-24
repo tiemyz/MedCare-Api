@@ -20,5 +20,4 @@ public class Informacoes {
     private int temp;
     private int batimento;
     private int humidade;
-    private Usuario usuario;
 }

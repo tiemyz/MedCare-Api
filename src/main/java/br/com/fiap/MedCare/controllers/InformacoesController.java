@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.MedCare.exception.RestNotFoundException;
 import br.com.fiap.MedCare.models.Informacoes;
-import br.com.fiap.MedCare.models.Usuario;
 import br.com.fiap.MedCare.repository.InformacoesRepository;
-import br.com.fiap.MedCare.repository.UsuarioRepository;
 import jakarta.validation.Valid;
 
 @RestController
@@ -29,8 +26,6 @@ public class InformacoesController {
    
    @Autowired
    InformacoesRepository iRepository;
-   @Autowired
-   UsuarioRepository uRepository; 
 
    @GetMapping
    ResponseEntity<Page<Informacoes>> getAllInformacoes(
@@ -39,22 +34,20 @@ public class InformacoesController {
         Page<Informacoes> infos = iRepository.findAll(PageRequest.of(page, size));
         return ResponseEntity.ok(infos);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Informacoes> getInformacoesById(@PathVariable Long id) {
         return ResponseEntity.ok(getInfo(id));
     }
+
     @PostMapping
-    public ResponseEntity<Informacoes> createInfo(@RequestBody @Valid Informacoes infos){
+    public ResponseEntity<Informacoes> createInfo(@RequestBody Informacoes infos){
+        Informacoes novaInformacoes = iRepository.save(infos);
+        return new ResponseEntity<>(novaInformacoes, HttpStatus.CREATED);
 
-        infos.setUsuario(uRepository.findById(infos.getUsuario().getId()).get());
-
-        System.out.println(infos.getUsuario());
-
-        iRepository.save(infos);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(infos);
     }
-        @DeleteMapping("{id}")
+
+    @DeleteMapping("{id}")
     public ResponseEntity<Informacoes> delete(@PathVariable Long id) {
 
          iRepository.delete(getInfo(id));
