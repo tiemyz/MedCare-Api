@@ -16,10 +16,10 @@ public class DocumentationConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                    .title("AuxiliaMed API")
+                    .title("MedCare API")
                     .version("v1")
                     .contact(new Contact().name("Veetor Systems").email("veetorsystems@fiap.com.br"))
-                    .description("API de informações sobre hospitais, consultórios e doenças")
+                    .description("API do projeto MedCare desenvolvido pelo grupo Veetor Systems.")
                 )
                 .components(new Components()
                         .addSecuritySchemes("bearer-key",

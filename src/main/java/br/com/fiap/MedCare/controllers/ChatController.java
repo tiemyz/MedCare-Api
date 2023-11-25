@@ -30,7 +30,7 @@ public class ChatController {
 
     @PostMapping("/enviar")
     public ResponseEntity<Mensagem> enviarMensagem(@RequestBody Mensagem mensagem) {
-        mensagem.setDataEnvio(new Date()); // Atualiza a data de envio antes de salvar
+        mensagem.setDataEnvio(new Date()); 
         Mensagem novaMensagem = chatRepository.save(mensagem);
         return new ResponseEntity<>(novaMensagem, HttpStatus.CREATED);
     }

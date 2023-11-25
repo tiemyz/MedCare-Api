@@ -72,7 +72,7 @@ public class UsuarioController {
             Map<String, Object> response = new HashMap<>();
             response.put("tipoUsuario", tipoUsuario);
             response.put("token", token);
-            response.put("nome", userDetails.getUsername()); // Adicione o nome do usuário
+            response.put("nome", userDetails.getUsername());
     
             return ResponseEntity.ok(response);
         } catch (BadCredentialsException e) {
@@ -102,7 +102,6 @@ public class UsuarioController {
     public ResponseEntity<Object> updateUsuario(@PathVariable Long id, @RequestBody @Valid Usuario updatedUsuario) {
         return repository.findById(id)
                 .map(existingUsuario -> {
-                    // Update fields of existingUsuario with the values from updatedUsuario
                     existingUsuario.setNome(updatedUsuario.getNome());
                     existingUsuario.setEmail(updatedUsuario.getEmail());
                     existingUsuario.setDataNascimento(updatedUsuario.getDataNascimento());
